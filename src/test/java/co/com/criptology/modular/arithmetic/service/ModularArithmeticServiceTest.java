@@ -18,6 +18,11 @@ public class ModularArithmeticServiceTest {
     }
 
     @Test
+    public void summandsCannotBeLessThanZero(){
+        Assertions.assertThrows(Exception.class, () -> modArithmetic.sum(-2, 5, 10));
+    }
+
+    @Test
     public void factorsInProductCannotBeGreaterThanModulo(){
         Assertions.assertThrows(Exception.class, () -> modArithmetic.product(20, 4, 12));
     }
@@ -25,6 +30,11 @@ public class ModularArithmeticServiceTest {
     @Test
     public void factorsInProductCannotBeEqualToModulo(){
         Assertions.assertThrows(Exception.class, () -> modArithmetic.product(2, 12, 12));
+    }
+
+    @Test
+    public void factorsInProductCannotBeLessThanZero(){
+        Assertions.assertThrows(Exception.class, () -> modArithmetic.product(2, -8, 12));
     }
 
     @Test
@@ -38,6 +48,11 @@ public class ModularArithmeticServiceTest {
     }
 
     @Test
+    public void termsInSubtractionCannotLessThanZero(){
+        Assertions.assertThrows(Exception.class, () -> modArithmetic.subtract(-1, 9, 11));
+    }
+
+    @Test
     public void termsInDivisionCannotBeGreaterThanModulo(){
         Assertions.assertThrows(Exception.class, () -> modArithmetic.division(14,1,10));
     }
@@ -45,5 +60,10 @@ public class ModularArithmeticServiceTest {
     @Test
     public void termsInDivisionCannotBeEqualToModulo(){
         Assertions.assertThrows(Exception.class, () -> modArithmetic.division(4,10,10));
+    }
+
+    @Test
+    public void termsInDivisionCannotBeLessThanZero(){
+        Assertions.assertThrows(Exception.class, () -> modArithmetic.division(4,-4,10));
     }
 }

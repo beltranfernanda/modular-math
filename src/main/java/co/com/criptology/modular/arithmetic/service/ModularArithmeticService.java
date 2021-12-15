@@ -8,6 +8,9 @@ public class ModularArithmeticService implements IModularArithmeticService {
 
     @Override
     public int sum(int num1, int num2, int modulo) {
+        if (isLessThanZero(num1) || isLessThanZero(num2)){
+            throw new ArithmeticException("Numbers must be greater or equal than zero.");
+        }
         if (isGreaterOrEqualThanModulo(num1, modulo) || isGreaterOrEqualThanModulo(num2, modulo)) {
             throw new IllegalArgumentException();
         }
@@ -16,6 +19,9 @@ public class ModularArithmeticService implements IModularArithmeticService {
 
     @Override
     public int product(int num1, int num2, int modulo) {
+        if (isLessThanZero(num1) || isLessThanZero(num2)){
+            throw new ArithmeticException("Numbers must be greater or equal than zero.");
+        }
         if (isGreaterOrEqualThanModulo(num1, modulo) || isGreaterOrEqualThanModulo(num2, modulo)) {
             throw new IllegalArgumentException();
         }
@@ -24,6 +30,9 @@ public class ModularArithmeticService implements IModularArithmeticService {
 
     @Override
     public int subtract(int num1, int num2, int modulo) {
+        if (isLessThanZero(num1) || isLessThanZero(num2)){
+            throw new ArithmeticException("Numbers must be greater or equal than zero.");
+        }
         if (isGreaterOrEqualThanModulo(num1, modulo) || isGreaterOrEqualThanModulo(num2, modulo)) {
             throw new IllegalArgumentException();
         }
@@ -32,6 +41,9 @@ public class ModularArithmeticService implements IModularArithmeticService {
 
     @Override
     public int division(int num1, int num2, int modulo) {
+        if (isLessThanZero(num1) || isLessThanZero(num2)){
+            throw new ArithmeticException("Numbers must be greater or equal than zero.");
+        }
         if (isGreaterOrEqualThanModulo(num1, modulo) || isGreaterOrEqualThanModulo(num2, modulo)) {
             throw new IllegalArgumentException();
         }
@@ -40,5 +52,9 @@ public class ModularArithmeticService implements IModularArithmeticService {
 
     private boolean isGreaterOrEqualThanModulo(int number, int modulo) {
         return number >= modulo;
+    }
+
+    private boolean isLessThanZero(int number){
+        return number < 0;
     }
 }
